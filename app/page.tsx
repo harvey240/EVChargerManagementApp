@@ -164,13 +164,13 @@ export default function DashboardClient() {
   if (loading) {
     return (
       <main className='min-h-screen p-4 md:p-8 bg-background'>
-        <div className='max-w-6xl mx-auto mb-8'>
+        <div className='max-w-7xl mx-auto mb-8'>
           <h1 className='md:text-left text-center text-3xl md:text-4xl font-bold text-(--color-systalblue) mb-2'>
             EV Charger Management_
           </h1>
         </div>
 
-        <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6'>
+        <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6'>
           {[1, 2, 3, 4].map((i) => (
             <ChargerCardSkeleton key={i} />
           ))}
@@ -190,7 +190,7 @@ export default function DashboardClient() {
   return (
     <main className='min-h-screen p-4 md:p-8'>
       {/* HEADER */}
-      <div className='max-w-6xl mx-auto mb-8'>
+      <div className='max-w-7xl mx-auto mb-8'>
         <div className='flex items-center justify-between mb-2'>
           <h1 className='md:text-left text-start text-2xl sm:text-4xl font-extrabold dark:font-bold text-systabluelightmode dark:text-systalblue mb-2 '>
             EV Charger Management
@@ -238,12 +238,18 @@ export default function DashboardClient() {
           >
             View History →
           </Link>
+          <Link
+            href='/scheduler'
+            className='text-systabluelightmode dark:text-systalblue hover:text-systalblue/80 text-lg md:text-sm font-semibold mt-1 md:text-left text-center ml-4'
+          >
+            Task Scheduler →
+          </Link>
         </div>
       </div>
 
       {/* Active Session Banner */}
       {userActiveCharger && (
-        <div className='max-w-6xl mx-auto mb-6 bg-systabluelightmode/70 dark:bg-systalblue/70 border-2 border-sky-500 rounded-lg p-4'>
+        <div className='max-w-7xl mx-auto mb-6 bg-systabluelightmode/70 dark:bg-systalblue/70 border-2 border-sky-500 rounded-lg p-4'>
           <div className='flex items-center justify-between flex-wrap gap-4'>
             <div>
               <p className='s font-semibold'>
@@ -267,7 +273,7 @@ export default function DashboardClient() {
 
       {/* ALL AVAILABLE BANNER */}
       {chargers.every((c) => c.status === "available") && (
-        <div className='max-w-6xl mx-auto mb-8 bg-green-300 dark:bg-green-700 border-2 border-green-500 rounded-lg p-6'>
+        <div className='max-w-7xl mx-auto mb-8 bg-green-300 dark:bg-green-700 border-2 border-green-500 rounded-lg p-6'>
           <p className='text-green-800 dark:text-green-50 text-center font-semibold'>
             All chargers are currently available!
           </p>
@@ -276,14 +282,14 @@ export default function DashboardClient() {
 
       {/* Empty state when no chargers */}
       {chargers.length === 0 && !loading && (
-        <div className="max-w-6xl mx-auto bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-lg p-12 text-center">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-stone-900 border-2 border-stone-200 dark:border-stone-700 rounded-lg p-12 text-center">
           <p className="text-stone-600 dark:text-stone-400 text-lg mb-4">No Chargers Found</p>
           <p className="text-stone-500 dark:text-stone-500 text-sm">Contact your administrator if you believe this is an error</p>
         </div>
       )}
 
       {/* CHARGER GRID */}
-      <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6'>
+      <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6'>
         {chargers.map((charger) => (
           <div
             key={charger.id}
@@ -308,7 +314,7 @@ export default function DashboardClient() {
       </div>
 
       {/* Last Updated Indicator */}
-      <div className='max-w-6xl mx-auto mt-8 text-center text-sm text-stone-700 dark:text-stone-400'>
+      <div className='max-w-7xl mx-auto mt-8 text-center text-sm text-stone-700 dark:text-stone-400'>
         Auto-refreshes every 10 seconds
       </div>
 
